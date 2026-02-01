@@ -1,0 +1,218 @@
+/* --- Basic Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: #ff8a80; /* Salmon/Coral color from screenshot */
+    display: flex;
+    justify-content: center; /* Centers the links */
+    align-items: center;
+    padding: 15px 5%;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px; /* Precise spacing between links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.menu-icon {
+    position: absolute;
+    right: 30px; /* Pins the menu icon to the right */
+    height: 25px;
+    width: auto;
+    cursor: pointer;
+}
+
+/* --- Hero Layout --- */
+.hero-container {
+    display: flex;
+    min-height: calc(100vh - 55px); /* Full height minus navbar */
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+/* --- Left Content Side --- */
+.content-side {
+    flex: 1; /* Takes 50% width on desktop */
+    min-width: 400px;
+    /* Creating the Yellow-to-Pink gradient from your image */
+    background: linear-gradient(to right, #fff9c4, #ffd1d1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 10%;
+}
+
+.content-side h1 {
+    font-size: 55px;
+    font-weight: 900;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.content-side p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.cta-btn {
+    background-color: #ff8a80;
+    color: #fff;
+    border: none;
+    padding: 12px 40px;
+    font-size: 12px;
+    width: fit-content;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    filter: brightness(0.9);
+}
+
+/* --- Right Image Side --- */
+.image-side {
+    flex: 1;
+    min-width: 350px;
+    overflow: hidden; /* Keeps the image inside the box */
+}
+
+.image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces the image to fill the side without stretching */
+    display: block;    /* Removes any small white gaps at the bottom */
+}
+
+/* Stacks them for Mobile */
+@media (max-width: 800px) {
+    .hero-container { flex-direction: column; }
+    .image-side { height: 400px; }
+}
+
+/* Ensure the parent container doesn't restrict height */
+.hero-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;                   /* Forces the main area to be full screen */
+    flex-wrap: wrap;                     /* Necessary for mobile/responsive stacking */
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 850px) {
+    .nav-links {
+        display: none; /* Hide links on small screens like the screenshot */
+    }
+
+    .hero-container {
+        flex-direction: column; /* Stack text on top of image */
+    }
+
+    .content-side {
+        flex: none;
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .image-side {
+        flex: none;
+        width: 100%;
+        height: 350px; /* Fixed height for mobile view */
+    }
+
+    .content-side h1 {
+        font-size: 35px;
+    }
+}
+
+.gallery-container {
+    padding: 100px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    /* Purple/Pink gradient */
+    background: linear-gradient(135deg, #fff9c4, #f8bbd0, #e1bee7);
+}
+
+.collage-grid {
+    display: flex;
+    gap: 15px;
+}
+
+.column-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.grid-img {
+    width: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+/* Target the link specifically */
+.arrow-link {
+    text-decoration: none;    /* REMOVES THE BLUE UNDERLINE */
+    color: #000000;           /* SETS TEXT TO BLACK */
+    font-weight: bold;        /* Matches the thick style in 1st image */
+    display: flex;            /* Aligns text and arrow in a row */
+    align-items: center;      /* Centers them vertically */
+    gap: 10px;                /* Space between 'Click' and the arrow icon */
+}
+
+/* Ensure the arrow icon matches the size in the 1st image */
+.arrow-link img {
+    height: 14px;             /* Size for icons8-arrow-30.png */
+    width: auto;
+}
+
+/* Specific heights for the collage effect */
+.top, .bottom { height: 200px; }
+.tall { width: 220px; height: 415px; }
+
+.text-card {
+    background-color: #ff8a80; /* Reddish box */
+    padding: 50px;
+    flex: 1;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.text-card h2 {
+    font-size: 45px;
+    font-weight: 900;
+    margin: 20px 0;
+}
+
+/* --- 5. RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 850px) {
+    .hero-container { flex-direction: column; }
+    .image-side { height: 400px; }
+    .gallery-container { flex-direction: column; }
+    .collage-grid { flex-direction: row; }
+    .grid-img { width: 120px; height: 120px; }
+    .tall { width: 120px; height: 120px; }
+}
